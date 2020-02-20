@@ -7,8 +7,11 @@ class School
   end
   
   def add_student(name, grade) 
-    self.roster[grade] ||= []
-    self.roster[grade] << name 
+   if roster.has_key?(grade) 
+     roster[grade] << name
+   else 
+     roster[grade] = [name]
+   end 
   end 
   
   def grade(grade)
